@@ -1,0 +1,15 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  align-items: center;
+  width: 100vw;
+}
+.second {
+  display: flex;
+  gap: 2rem;
+}
+.main {
+  max-width: 1440px;
+}

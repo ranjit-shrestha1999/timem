@@ -1,0 +1,19 @@
+.heading {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 64px;
+}
+.para {
+  display: flex;
+  flex-direction: column;
+
+  align-items: normal;
+  gap: 4px;
+}
+.para p {
+  font-size: 18px;
+  font-weight: 400;
+  color: #a0d3cc;
+}
