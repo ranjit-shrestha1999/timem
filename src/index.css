@@ -3,9 +3,15 @@
   margin: 0px;
   padding: 0px;
   font-family: "Ubuntu";
+  box-sizing: border-box;
 }
-/* body {
-  background: url("./assets/images/lines.png"),
-    url("./assets/images/noise.png")
-      linear-gradient(120deg, #211860 0%, #33277e 100%);
-} */
+
+.app {
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  background-position: center !important;
+  background-size: cover !important;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

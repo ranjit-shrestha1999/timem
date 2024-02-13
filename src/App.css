@@ -1,15 +1,14 @@
-.app {
+.main {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-
   align-items: center;
-  width: 100vw;
-}
-.second {
-  display: flex;
+  justify-content: center;
+  padding: 64px 250px 0px 250px;
   gap: 2rem;
 }
-.main {
-  max-width: 1440px;
+
+.second {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
