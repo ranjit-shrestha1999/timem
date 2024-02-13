@@ -7,8 +7,6 @@
 .para {
   display: flex;
   flex-direction: column;
-
-  align-items: normal;
   gap: 4px;
 }
 .para p {
