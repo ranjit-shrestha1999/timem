@@ -1,14 +1,14 @@
 .main {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 64px 250px 0px 250px;
-  gap: 2rem;
+  padding: 64px 200px 64px 200px;
+  gap: 3rem;
 }
 
 .second {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
 }

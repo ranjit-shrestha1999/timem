@@ -1,6 +1,4 @@
 .container1 {
-  width: 400px;
-  height: 493px;
   background: linear-gradient(
     105deg,
     rgba(59.72, 47.96, 128.76, 0.6) 0%,
@@ -10,4 +8,44 @@
   border-radius: 16px;
   border: 1px solid rgba(165, 163, 163, 0.6);
   backdrop-filter: blur(6px);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.container1 h1 {
+  color: #e6e6e6;
+  font-size: 32px;
+  font-weight: 500;
+}
+.circle {
+  background-color: #231e4c;
+  border: none;
+  border-radius: 360px;
+  height: 240px;
+  width: 240px;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  gap: 40px;
+}
+.buttoncontainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+}
+.buttoncontainer button {
+  padding: 18px 56px;
+  border: 2px solid #208bee;
+  background-color: #2b3987;
+  color: #e6e6e6;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.buttoncontainer button:hover {
+  box-shadow: 0px 3px 16px rgba(32, 139, 238, 0.3);
 }

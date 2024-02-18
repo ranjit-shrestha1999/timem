@@ -7,11 +7,11 @@
 }
 
 .app {
-  background-repeat: no-repeat !important;
-  background-attachment: fixed !important;
-  background-position: center !important;
-  background-size: cover !important;
-  height: 100vh;
+  background: url("./assets/images/noise.png"), url("./assets/images/lines.png"),
+    linear-gradient(120deg, #211860 0%, #33277e 100%);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
   display: flex;
   flex-direction: column;
 }

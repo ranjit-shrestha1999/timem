@@ -1,4 +1,5 @@
 import logo from "../images/Time_m.png";
+
 import "../styles/Heading.css";
 const Heading = () => {
   return (
