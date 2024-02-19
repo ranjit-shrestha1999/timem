@@ -1,34 +1,73 @@
-/* Modal.css */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+.todobutton {
+  font-size: 18px;
+  font-weight: 400;
+  padding: 18px 48px;
+  border-radius: 6px;
+  background-color: #208bee;
+  color: #e6e6e6;
+  border: none;
+  box-shadow: none;
+}
+.todobutton:hover {
+  box-shadow: 0px 2px 16px rgba(32, 139, 238, 0.5);
+}
+.dialogcontainer {
+  margin: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.modalinputcontainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.inputcontainer .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
+  font-size: 18px;
+  border-radius: 8px;
+  width: 420px;
+}
+.modalbuttoncontainer {
+  display: flex;
+  gap: 16px;
 }
 
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+.dialogbutton1 {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 14px 40px;
+  border-radius: 6px;
+  background-color: #f9fbfd;
+  color: #208bee;
+  border: 1px solid #208bee;
+  box-shadow: none;
+  letter-spacing: 1px;
+}
+.dialogbutton2 {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 14px 40px;
+  border-radius: 6px;
+  background-color: #208bee;
+  color: #e6e6e6;
+  border: none;
+  box-shadow: none;
+  letter-spacing: 1px;
+}
+.dialogbutton1:hover {
+  box-shadow: 0px 2px 16px rgba(32, 139, 238, 0.5);
+}
+.dialogbutton2:hover {
+  box-shadow: 0px 2px 16px rgba(32, 139, 238, 0.5);
 }
 
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+.titleheading {
+  font-size: 24px;
+  font-weight: 600;
 }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+  border-radius: 8px !important;
 }
