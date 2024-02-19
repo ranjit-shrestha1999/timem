@@ -7,6 +7,7 @@
   color: #e6e6e6;
   border: none;
   box-shadow: none;
+  cursor: pointer;
 }
 .todobutton:hover {
   box-shadow: 0px 2px 16px rgba(32, 139, 238, 0.5);
@@ -43,6 +44,7 @@
   border: 1px solid #208bee;
   box-shadow: none;
   letter-spacing: 1px;
+  cursor: pointer;
 }
 .dialogbutton2 {
   width: 100%;
@@ -55,12 +57,13 @@
   border: none;
   box-shadow: none;
   letter-spacing: 1px;
+  cursor: pointer;
 }
 .dialogbutton1:hover {
-  box-shadow: 0px 2px 16px rgba(32, 139, 238, 0.5);
+  box-shadow: 0px 3px 16px rgba(32, 139, 238, 0.2);
 }
 .dialogbutton2:hover {
-  box-shadow: 0px 2px 16px rgba(32, 139, 238, 0.5);
+  box-shadow: 0px 3px 16px rgba(32, 139, 238, 0.2);
 }
 
 .titleheading {

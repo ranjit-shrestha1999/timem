@@ -1,18 +1,22 @@
 import { useState } from "react";
-
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
-
 import "../styles/Modal.css";
 
 const Todomodal = () => {
   const [input1, setInput1] = useState("");
   const [input2, setInput2] = useState("");
 
-  // const handleSave = () => {
-  //   // Handle save functionality here
-  //   console.log("Inputs:", input1, input2);
-  // };
+  const handleSave = () => {
+    // Handle save functionality here
+    if (!input1.trim() || !input2.trim()) {
+      alert("Please fill all the data");
+    } else {
+      console.log("Inputs:", input1, input2);
+      setInput1("");
+      setInput2("");
+    }
+  };
 
   const [open, setOpen] = useState(false);
 
@@ -22,6 +26,8 @@ const Todomodal = () => {
 
   const handleClose = () => {
     setOpen(false);
+    setInput1("");
+    setInput2("");
   };
 
   return (
@@ -55,7 +61,7 @@ const Todomodal = () => {
             <button className="dialogbutton1" onClick={handleClose}>
               CLOSE
             </button>
-            <button className="dialogbutton2" onClick={handleClose} autoFocus>
+            <button className="dialogbutton2" onClick={handleSave}>
               SAVE
             </button>
           </div>
