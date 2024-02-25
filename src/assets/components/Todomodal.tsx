@@ -9,6 +9,9 @@ interface SomeProps {
   setTaskName: (value: string) => void;
   taskDescription: string;
   setTaskDescription: (value: string) => void;
+  tasks: string[];
+  setTasks: (value: string) => void;
+  setOpenSnackbar: (value: boolean) => void;
 }
 
 const Todomodal: React.FC<SomeProps> = ({
@@ -17,20 +20,26 @@ const Todomodal: React.FC<SomeProps> = ({
   setTaskName,
   taskDescription,
   setTaskDescription,
+  tasks,
+  setTasks,
+  setOpenSnackbar,
 }) => {
-  const [tasks, setTasks] = useState([]);
   const [error, setError] = useState(false);
-  const handleSave = (e: Event) => {
-    e.preventDefault();
+
+  const handleSave = () => {
+    debugger;
     if (!taskName.trim() || !taskDescription.trim()) {
       setError(true);
     } else {
       setTasks([...tasks, newTask]);
+      setOpen(false);
       setTaskName("");
       setTaskDescription("");
       setError(false);
+      setOpenSnackbar(true);
     }
   };
+
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -43,6 +52,7 @@ const Todomodal: React.FC<SomeProps> = ({
     setTaskDescription("");
   };
 
+  console.log(tasks);
   return (
     <>
       <button className="todobutton" onClick={handleClickOpen}>
@@ -51,39 +61,43 @@ const Todomodal: React.FC<SomeProps> = ({
       <Dialog open={open} onClose={handleClose}>
         <div className="dialogcontainer">
           <h1 className="titleheading">Add Your Task</h1>
-          <form>
-            <div className="modalinputcontainer">
-              {error ? (
-                <div className="error">*Note : Please fill all the data</div>
-              ) : null}
 
-              <TextField
-                id="outlined-basic"
-                label="Task Heading"
-                variant="outlined"
-                value={taskName}
-                onChange={(e) => setTaskName(e.target.value)}
-                className="inputcontainer"
-              />
-              <TextField
-                id="outlined-multiline-flexible"
-                label="Your Task Details"
-                multiline
-                maxRows={4}
-                value={taskDescription}
-                onChange={(e) => setTaskDescription(e.target.value)}
-                className="inputcontainer"
-              />
-            </div>
-            <div className="modalbuttoncontainer">
-              <button className="dialogbutton1" onClick={handleClose}>
-                CLOSE
-              </button>
-              <button className="dialogbutton2" onClick={handleSave}>
-                SAVE
-              </button>
-            </div>
-          </form>
+          <div className="modalinputcontainer">
+            {error ? (
+              <div className="error">*Note : Please fill all the data</div>
+            ) : null}
+
+            <TextField
+              id="outlined-basic"
+              label="Task Heading"
+              variant="outlined"
+              value={taskName}
+              onChange={(e) => setTaskName(e.target.value)}
+              className="inputcontainer"
+            />
+            <TextField
+              id="outlined-multiline-flexible"
+              label="Your Task Details"
+              multiline
+              maxRows={4}
+              value={taskDescription}
+              onChange={(e) => setTaskDescription(e.target.value)}
+              className="inputcontainer"
+            />
+          </div>
+          <div className="modalbuttoncontainer">
+            <button className="dialogbutton1" onClick={handleClose}>
+              CLOSE
+            </button>
+            <button
+              className="dialogbutton2"
+              onClick={() => {
+                handleSave();
+              }}
+            >
+              SAVE
+            </button>
+          </div>
         </div>
       </Dialog>
     </>
