@@ -27,7 +27,6 @@ const Todomodal: React.FC<SomeProps> = ({
   const [error, setError] = useState(false);
 
   const handleSave = () => {
-    debugger;
     if (!taskName.trim() || !taskDescription.trim()) {
       setError(true);
     } else {
@@ -52,7 +51,6 @@ const Todomodal: React.FC<SomeProps> = ({
     setTaskDescription("");
   };
 
-  console.log(tasks);
   return (
     <>
       <button className="todobutton" onClick={handleClickOpen}>

@@ -9,7 +9,13 @@ import Alert from "@mui/material/Alert";
 const App = () => {
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
-  const newTask = { name: taskName, description: taskDescription };
+  // const [statusNumber, setStatusNumber] = useState<number>(1); // 1 for pending, 2 for completed , 3 for skipped, 4 for running.
+
+  const newTask = {
+    name: taskName,
+    description: taskDescription,
+    status: 1,
+  };
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
   const handleCloseSnackbar = () => {
@@ -28,6 +34,8 @@ const App = () => {
             setTaskDescription={setTaskDescription}
             setTaskName={setTaskName}
             setOpenSnackbar={setOpenSnackbar}
+            // setStatusNumber={setStatusNumber}
+            // statusNumber={statusNumber}
           />
           <Timer />
         </div>
