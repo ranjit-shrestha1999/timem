@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-.app {
+body {
   background: url("./assets/images/noise.png"), url("./assets/images/lines.png"),
     linear-gradient(120deg, #211860 0%, #33277e 100%);
   background-attachment: fixed;

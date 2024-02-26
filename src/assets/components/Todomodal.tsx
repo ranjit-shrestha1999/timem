@@ -3,14 +3,20 @@ import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import "../styles/Modal.css";
 
+interface SomeComponentProps2 {
+  name: string;
+  description: string;
+}
+
 interface SomeProps {
   newTask: { name: string; description: string };
   taskName: string;
   setTaskName: (value: string) => void;
   taskDescription: string;
   setTaskDescription: (value: string) => void;
-  tasks: string[];
-  setTasks: (value: string) => void;
+  tasks: SomeComponentProps2[];
+  // setTasks: (value: string) => void;
+  setTasks: React.Dispatch<React.SetStateAction<SomeComponentProps2[]>>;
   setOpenSnackbar: (value: boolean) => void;
 }
 

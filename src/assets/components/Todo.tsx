@@ -7,9 +7,9 @@ import { FaCircleCheck } from "react-icons/fa6";
 
 interface SomeComponentProps {
   newTask: { name: string; description: string };
-  tasks: string[];
+
   taskName: string;
-  setTasks: (value: string) => void;
+
   setTaskName: (value: string) => void;
   taskDescription: string;
   setTaskDescription: (value: string) => void;
@@ -29,14 +29,12 @@ const Todo: React.FC<SomeComponentProps> = ({
   setTaskDescription,
 }) => {
   const [tasks, setTasks] = useState<SomeComponentProps2[]>([]);
-  const [cTasksIndex, setCTasksIndex] = useState<number[]>([]);
+
   const completeList = (index: number) => {
-    setCTasksIndex([...cTasksIndex, index]);
     const updatedTasks = tasks.map((task: any, i: number) =>
       i === index ? { ...task, status: 2 } : task
     );
 
-    // Update the tasks state with the new array
     setTasks(updatedTasks);
   };
 
@@ -46,7 +44,7 @@ const Todo: React.FC<SomeComponentProps> = ({
   };
 
   return (
-    <div className={tasks.length > 7 ? "containerautoheight" : "container"}>
+    <div className={tasks.length > 6 ? "containerautoheight" : "container"}>
       <div className="head-main">
         <div className="warper">
           <h1>My task</h1>
@@ -70,13 +68,28 @@ const Todo: React.FC<SomeComponentProps> = ({
             <li
               key={index}
               className={
-                cTasksIndex.includes(index) ? "todolistcompleted" : " todolist"
+                task.status === 1
+                  ? "todolist"
+                  : task.status === 2
+                  ? "todolistcompleted"
+                  : task.status === 3
+                  ? "todolist"
+                  : "todolist"
               }
             >
               #{task.name.charAt(0).toUpperCase() + task.name.slice(1)} :{" "}
               {task.description.charAt(0).toUpperCase() +
                 task.description.slice(1)}
-              {cTasksIndex.includes(index) ? (
+              {task.status === 1 ? (
+                <div className="delete-complete">
+                  <div className="delete" onClick={() => deleteList(index)}>
+                    <MdDelete color="red" size={32} />
+                  </div>
+                  <div className="delete" onClick={() => completeList(index)}>
+                    <FaCircleCheck color="green" size={26} />
+                  </div>
+                </div>
+              ) : task.status === 2 ? (
                 ""
               ) : (
                 <div className="delete-complete">

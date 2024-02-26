@@ -11,6 +11,7 @@
   border: 1px solid rgba(165, 163, 163, 0.6);
   backdrop-filter: blur(6px);
   padding: 24px;
+  /* margin-bottom: 30px; */
 }
 .containerautoheight {
   width: 855px;
@@ -24,6 +25,7 @@
   border: 1px solid rgba(165, 163, 163, 0.6);
   backdrop-filter: blur(6px);
   padding: 24px;
+  margin-bottom: 30px;
 }
 .head-main {
   display: flex;
