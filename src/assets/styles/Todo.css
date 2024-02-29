@@ -37,16 +37,30 @@
   gap: 6px;
   flex-direction: column;
 }
+
 .warper h1 {
   font-size: 28px;
   font-weight: 500;
   color: #e6e6e6;
 }
-.warper p {
-  font-size: 18px;
-  font-style: italic;
+.count {
+  font-size: 17px;
+  /* font-style: italic; */
   font-weight: 400;
   color: #c3c1c1;
+  letter-spacing: 0.5px;
+}
+.counter {
+  display: flex;
+  list-style: none;
+  gap: 6px;
+  align-items: center;
+}
+.smallcircle {
+  width: 6px;
+  height: 6px;
+  background-color: chartreuse;
+  border-radius: 360px;
 }
 .todolist {
   padding: 4px 4px 4px 12px;
@@ -65,7 +79,7 @@
   list-style: none;
 }
 .todolistcompleted {
-  padding: 14px 4px 14px 12px;
+  padding: 4px 4px 4px 12px;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -79,8 +93,9 @@
   border-radius: 8px;
   border: 1px rgba(181.46, 160.14, 160.14, 0.5) solid;
   list-style: none;
-  text-decoration: line-through;
+  /* text-decoration: line-through; */
 }
+
 .list {
   padding-top: 24px;
   display: flex;
@@ -97,6 +112,18 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+.completedcontainer {
+  background-color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 9px 8px 9px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: green;
+  text-decoration: none;
+  font-weight: 500;
 }
 .delete-complete {
   display: flex;

@@ -2,20 +2,26 @@ import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import "../styles/Modal.css";
+// import dayjs from "dayjs";
+// import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
+// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+// import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+// import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 
 interface SomeComponentProps2 {
   name: string;
   description: string;
+  status: number;
 }
 
 interface SomeProps {
-  newTask: { name: string; description: string };
+  newTask: { name: string; description: string; status: number };
   taskName: string;
   setTaskName: (value: string) => void;
   taskDescription: string;
   setTaskDescription: (value: string) => void;
   tasks: SomeComponentProps2[];
-  // setTasks: (value: string) => void;
+
   setTasks: React.Dispatch<React.SetStateAction<SomeComponentProps2[]>>;
   setOpenSnackbar: (value: boolean) => void;
 }
@@ -88,6 +94,13 @@ const Todomodal: React.FC<SomeProps> = ({
               onChange={(e) => setTaskDescription(e.target.value)}
               className="inputcontainer"
             />
+            {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DemoContainer components={["TimePicker"]}>
+                <DemoItem label="Task Start From">
+                  <TimePicker defaultValue={dayjs("2022-04-17T15:30")} />
+                </DemoItem>
+              </DemoContainer>
+            </LocalizationProvider> */}
           </div>
           <div className="modalbuttoncontainer">
             <button className="dialogbutton1" onClick={handleClose}>

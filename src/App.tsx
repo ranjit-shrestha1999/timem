@@ -5,16 +5,17 @@ import Todo from "./assets/components/Todo";
 import Timer from "./assets/components/Timer";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
+// import Stopwatch from "./assets/components/Stopwatch";
 
 const App = () => {
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
-  // 1 for pending, 2 for completed , 3 for skipped, 4 for running.
+  // 1 for running, 2 for pending , 3 for skipped, 4 for completed.
 
   const newTask = {
     name: taskName,
     description: taskDescription,
-    status: 1,
+    status: 2,
   };
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
@@ -35,6 +36,8 @@ const App = () => {
           setOpenSnackbar={setOpenSnackbar}
         />
         <Timer />
+
+        {/* <Stopwatch /> */}
       </div>
       <Snackbar
         open={openSnackbar}

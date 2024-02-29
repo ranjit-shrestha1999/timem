@@ -1,7 +1,6 @@
 .main {
   display: flex;
   flex-direction: column;
-
   padding: 64px 200px 64px 200px;
   gap: 2.8rem;
 }
