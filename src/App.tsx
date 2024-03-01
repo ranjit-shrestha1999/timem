@@ -5,17 +5,24 @@ import Todo from "./assets/components/Todo";
 import Timer from "./assets/components/Timer";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
+import dayjs from "dayjs";
+
 // import Stopwatch from "./assets/components/Stopwatch";
 
 const App = () => {
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
+  const [startTime, setStartTime] = useState(dayjs());
+  const [endTime, setEndTime] = useState(dayjs());
+
   // 1 for running, 2 for pending , 3 for skipped, 4 for completed.
 
   const newTask = {
     name: taskName,
     description: taskDescription,
     status: 2,
+    time1: startTime,
+    time2: endTime,
   };
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
@@ -34,6 +41,10 @@ const App = () => {
           setTaskDescription={setTaskDescription}
           setTaskName={setTaskName}
           setOpenSnackbar={setOpenSnackbar}
+          setStartTime={setStartTime}
+          setEndTime={setEndTime}
+          startTime={startTime}
+          endTime={endTime}
         />
         <Timer />
 

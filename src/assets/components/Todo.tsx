@@ -5,10 +5,14 @@ import Empty from "./Empty";
 import { MdDelete } from "react-icons/md";
 import { FaCircleCheck } from "react-icons/fa6";
 import Counter from "./Counter";
+import dayjs from "dayjs";
 
 interface SomeComponentProps {
   newTask: { name: string; description: string; status: number };
-
+  setStartTime: React.Dispatch<React.SetStateAction<dayjs.Dayjs>>;
+  setEndTime: React.Dispatch<React.SetStateAction<dayjs.Dayjs>>;
+  startTime: dayjs.Dayjs;
+  endTime: dayjs.Dayjs;
   taskName: string;
 
   setTaskName: (value: string) => void;
@@ -29,6 +33,10 @@ const Todo: React.FC<SomeComponentProps> = ({
   taskDescription,
   setOpenSnackbar,
   setTaskDescription,
+  setStartTime,
+  startTime,
+  setEndTime,
+  endTime,
 }) => {
   const [tasks, setTasks] = useState<SomeComponentProps2[]>([]);
   const sortedTodos = tasks.slice().sort((a, b) => a.status - b.status);
@@ -65,6 +73,10 @@ const Todo: React.FC<SomeComponentProps> = ({
           setTasks={setTasks}
           tasks={tasks}
           setOpenSnackbar={setOpenSnackbar}
+          setStartTime={setStartTime}
+          setEndTime={setEndTime}
+          startTime={startTime}
+          endTime={endTime}
         />
       </div>
       <div>

@@ -2,11 +2,12 @@ import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import "../styles/Modal.css";
-// import dayjs from "dayjs";
-// import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
-// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-// import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-// import { TimePicker } from "@mui/x-date-pickers/TimePicker";
+import dayjs from "dayjs";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { TimePicker } from "@mui/x-date-pickers/TimePicker";
+import * as React from "react";
 
 interface SomeComponentProps2 {
   name: string;
@@ -21,6 +22,10 @@ interface SomeProps {
   taskDescription: string;
   setTaskDescription: (value: string) => void;
   tasks: SomeComponentProps2[];
+  setStartTime: React.Dispatch<React.SetStateAction<dayjs.Dayjs>>;
+  setEndTime: React.Dispatch<React.SetStateAction<dayjs.Dayjs>>;
+  startTime: dayjs.Dayjs;
+  endTime: dayjs.Dayjs;
 
   setTasks: React.Dispatch<React.SetStateAction<SomeComponentProps2[]>>;
   setOpenSnackbar: (value: boolean) => void;
@@ -35,6 +40,10 @@ const Todomodal: React.FC<SomeProps> = ({
   tasks,
   setTasks,
   setOpenSnackbar,
+  setStartTime,
+  startTime,
+  setEndTime,
+  endTime,
 }) => {
   const [error, setError] = useState(false);
 
@@ -54,6 +63,8 @@ const Todomodal: React.FC<SomeProps> = ({
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
+    setStartTime(dayjs());
+    setEndTime(dayjs());
     setOpen(true);
   };
 
@@ -94,13 +105,20 @@ const Todomodal: React.FC<SomeProps> = ({
               onChange={(e) => setTaskDescription(e.target.value)}
               className="inputcontainer"
             />
-            {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DemoContainer components={["TimePicker"]}>
-                <DemoItem label="Task Start From">
-                  <TimePicker defaultValue={dayjs("2022-04-17T15:30")} />
-                </DemoItem>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DemoContainer components={["TimePicker", "TimePicker"]}>
+                <TimePicker
+                  label="Task start from"
+                  value={startTime}
+                  onChange={(newValue) => setStartTime(newValue)}
+                />
+                <TimePicker
+                  label="Task end at"
+                  value={endTime}
+                  onChange={(newValue) => setEndTime(newValue)}
+                />
               </DemoContainer>
-            </LocalizationProvider> */}
+            </LocalizationProvider>
           </div>
           <div className="modalbuttoncontainer">
             <button className="dialogbutton1" onClick={handleClose}>
