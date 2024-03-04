@@ -14,7 +14,7 @@ const App = () => {
   const [taskDescription, setTaskDescription] = useState("");
   const [startTime, setStartTime] = useState(dayjs());
   const [endTime, setEndTime] = useState(dayjs());
-
+  const [duration, setDuration] = useState("");
   // 1 for running, 2 for pending , 3 for skipped, 4 for completed.
 
   const newTask = {
@@ -23,6 +23,7 @@ const App = () => {
     status: 2,
     time1: startTime,
     time2: endTime,
+    range: duration,
   };
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
@@ -45,6 +46,8 @@ const App = () => {
           setEndTime={setEndTime}
           startTime={startTime}
           endTime={endTime}
+          setDuration={setDuration}
+          duration={duration}
         />
         <Timer />
 

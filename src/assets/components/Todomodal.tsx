@@ -13,10 +13,20 @@ interface SomeComponentProps2 {
   name: string;
   description: string;
   status: number;
+  time1: dayjs.Dayjs;
+  time2: dayjs.Dayjs;
+  range: string;
 }
 
 interface SomeProps {
-  newTask: { name: string; description: string; status: number };
+  newTask: {
+    name: string;
+    description: string;
+    status: number;
+    time1: dayjs.Dayjs;
+    time2: dayjs.Dayjs;
+    range: string;
+  };
   taskName: string;
   setTaskName: (value: string) => void;
   taskDescription: string;
@@ -27,6 +37,7 @@ interface SomeProps {
   startTime: dayjs.Dayjs;
   endTime: dayjs.Dayjs;
 
+  setDuration: React.Dispatch<React.SetStateAction<string>>;
   setTasks: React.Dispatch<React.SetStateAction<SomeComponentProps2[]>>;
   setOpenSnackbar: (value: boolean) => void;
 }
@@ -44,6 +55,8 @@ const Todomodal: React.FC<SomeProps> = ({
   startTime,
   setEndTime,
   endTime,
+
+  setDuration,
 }) => {
   const [error, setError] = useState(false);
 
@@ -57,6 +70,14 @@ const Todomodal: React.FC<SomeProps> = ({
       setTaskDescription("");
       setError(false);
       setOpenSnackbar(true);
+      const start = new Date(`01/01/2024 ${startTime.format("h:mm")}`);
+      const end = new Date(`01/01/2024 ${endTime.format("h:mm")}`);
+
+      const milliseconds = Math.abs(end.getTime() - start.getTime());
+      const hours = Math.floor(milliseconds / 3600000); // 1 hour = 3600000 milliseconds
+      const minutes = Math.floor((milliseconds % 3600000) / 60000); // 1 minute = 60000 milliseconds
+
+      setDuration(`${hours} hours and ${minutes} minutes`);
     }
   };
 
@@ -110,12 +131,22 @@ const Todomodal: React.FC<SomeProps> = ({
                 <TimePicker
                   label="Task start from"
                   value={startTime}
-                  onChange={(newValue) => setStartTime(newValue)}
+                  onChange={(newValue) =>
+                    setStartTime(
+                      newValue instanceof dayjs ? newValue : dayjs(newValue)
+                    )
+                  }
+                  className="timecontainer"
                 />
                 <TimePicker
                   label="Task end at"
                   value={endTime}
-                  onChange={(newValue) => setEndTime(newValue)}
+                  onChange={(newValue) =>
+                    setEndTime(
+                      newValue instanceof dayjs ? newValue : dayjs(newValue)
+                    )
+                  }
+                  className="timecontainer"
                 />
               </DemoContainer>
             </LocalizationProvider>

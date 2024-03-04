@@ -8,22 +8,33 @@ import Counter from "./Counter";
 import dayjs from "dayjs";
 
 interface SomeComponentProps {
-  newTask: { name: string; description: string; status: number };
+  newTask: {
+    name: string;
+    description: string;
+    status: number;
+    time1: dayjs.Dayjs;
+    time2: dayjs.Dayjs;
+    range: string;
+  };
   setStartTime: React.Dispatch<React.SetStateAction<dayjs.Dayjs>>;
   setEndTime: React.Dispatch<React.SetStateAction<dayjs.Dayjs>>;
   startTime: dayjs.Dayjs;
   endTime: dayjs.Dayjs;
   taskName: string;
-
+  duration: string;
   setTaskName: (value: string) => void;
   taskDescription: string;
   setTaskDescription: (value: string) => void;
   setOpenSnackbar: (value: boolean) => void;
+  setDuration: React.Dispatch<React.SetStateAction<string>>;
 }
 interface SomeComponentProps2 {
   name: string;
   description: string;
   status: number;
+  time1: dayjs.Dayjs;
+  time2: dayjs.Dayjs;
+  range: string;
 }
 
 const Todo: React.FC<SomeComponentProps> = ({
@@ -37,6 +48,8 @@ const Todo: React.FC<SomeComponentProps> = ({
   startTime,
   setEndTime,
   endTime,
+  duration,
+  setDuration,
 }) => {
   const [tasks, setTasks] = useState<SomeComponentProps2[]>([]);
   const sortedTodos = tasks.slice().sort((a, b) => a.status - b.status);
@@ -77,6 +90,7 @@ const Todo: React.FC<SomeComponentProps> = ({
           setEndTime={setEndTime}
           startTime={startTime}
           endTime={endTime}
+          setDuration={setDuration}
         />
       </div>
       <div>
@@ -98,6 +112,7 @@ const Todo: React.FC<SomeComponentProps> = ({
               #{task.name.charAt(0).toUpperCase() + task.name.slice(1)} :{" "}
               {task.description.charAt(0).toUpperCase() +
                 task.description.slice(1)}
+              {" - "}({task.time1.format("h:mm a")})
               {task.status === 1 ? (
                 <div className="delete-complete">
                   <div className="delete" onClick={() => deleteList(index)}>

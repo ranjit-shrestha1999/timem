@@ -32,12 +32,16 @@
 .inputcontainer .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
   font-size: 18px !important;
   border-radius: 8px !important;
-  width: 533.33px;
+  width: 552px;
 }
 .inputcontainer .css-dpjnhs-MuiInputBase-root-MuiOutlinedInput-root {
   font-size: 18px !important;
   border-radius: 8px !important;
-  width: 533.33px;
+  width: 552px;
+}
+.timecontainer .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root {
+  font-size: 18px !important;
+  border-radius: 8px !important;
 }
 
 .modalbuttoncontainer {
