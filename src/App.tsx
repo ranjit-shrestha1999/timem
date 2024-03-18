@@ -14,7 +14,7 @@ const App = () => {
   const [taskDescription, setTaskDescription] = useState("");
   const [startTime, setStartTime] = useState(dayjs());
   const [endTime, setEndTime] = useState(dayjs());
-  const [duration, setDuration] = useState("");
+  const [duration, setDuration] = useState<number>(0);
   // 1 for running, 2 for pending , 3 for skipped, 4 for completed.
 
   const newTask = {
