@@ -14,19 +14,19 @@ interface SomeComponentProps {
     status: number;
     time1: dayjs.Dayjs;
     time2: dayjs.Dayjs;
-    range: string;
+    range: number;
   };
   setStartTime: React.Dispatch<React.SetStateAction<dayjs.Dayjs>>;
   setEndTime: React.Dispatch<React.SetStateAction<dayjs.Dayjs>>;
   startTime: dayjs.Dayjs;
   endTime: dayjs.Dayjs;
   taskName: string;
-  duration: string;
+  duration: number;
   setTaskName: (value: string) => void;
   taskDescription: string;
   setTaskDescription: (value: string) => void;
   setOpenSnackbar: (value: boolean) => void;
-  setDuration: React.Dispatch<React.SetStateAction<string>>;
+  setDuration: React.Dispatch<React.SetStateAction<number>>;
 }
 interface SomeComponentProps2 {
   name: string;
@@ -34,7 +34,7 @@ interface SomeComponentProps2 {
   status: number;
   time1: dayjs.Dayjs;
   time2: dayjs.Dayjs;
-  range: string;
+  range: number;
 }
 
 const Todo: React.FC<SomeComponentProps> = ({
@@ -48,7 +48,7 @@ const Todo: React.FC<SomeComponentProps> = ({
   startTime,
   setEndTime,
   endTime,
-  duration,
+
   setDuration,
 }) => {
   const [tasks, setTasks] = useState<SomeComponentProps2[]>([]);
@@ -112,7 +112,8 @@ const Todo: React.FC<SomeComponentProps> = ({
               #{task.name.charAt(0).toUpperCase() + task.name.slice(1)} :{" "}
               {task.description.charAt(0).toUpperCase() +
                 task.description.slice(1)}
-              {" - "}({task.time1.format("h:mm a")})
+              {" - "}({task.time1.format("h:mm a")}) {""} (
+              {task.time2.format("h:mm a")})
               {task.status === 1 ? (
                 <div className="delete-complete">
                   <div className="delete" onClick={() => deleteList(index)}>
